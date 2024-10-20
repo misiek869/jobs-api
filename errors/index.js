@@ -1,4 +1,4 @@
-const CustomAPIError = require('./custom-api')
+const CustomAPIError = require('./custom-api-error')
 
 module.exports = {
 	CustomAPIError,
