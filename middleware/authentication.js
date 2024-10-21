@@ -14,8 +14,9 @@ const authenticationMiddleware = async (req, res, next) => {
 
 	try {
 		const decoded = jwt.verify(token, process.env.JWT_SECRET)
-		const { id, username } = decoded
-		req.user = { userId: id, name: username }
+
+		const { name, userID } = decoded
+		req.user = { userId: userID, name: name }
 		next()
 	} catch (error) {
 		throw new UnauthenticatedError('Wrong authentication')
