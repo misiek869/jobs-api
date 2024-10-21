@@ -1,5 +1,6 @@
 const { required } = require('joi')
 const mongoose = require('mongoose')
+const JobSchema = require('../models/')
 
 const JobSchema = new mongoose.Schema(
 	{
