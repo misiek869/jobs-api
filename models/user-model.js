@@ -2,13 +2,13 @@ const mongoose = require('mongoose')
 
 const UserSchema = new mongoose.Schema({
 	name: {
-		type: string,
+		type: String,
 		require: [true, 'Please provide name'],
 		minlength: 3,
 		maxlength: 50,
 	},
 	email: {
-		type: string,
+		type: String,
 		require: [true, 'Please provide email'],
 
 		match: [
@@ -18,7 +18,7 @@ const UserSchema = new mongoose.Schema({
 		unique: true,
 	},
 	name: {
-		type: string,
+		type: String,
 		require: [true, 'Please provide password'],
 		minlength: 6,
 		maxlength: 12,
