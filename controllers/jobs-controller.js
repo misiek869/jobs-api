@@ -9,8 +9,23 @@ const getAllJobs = async (req, res) => {
 	res.status(StatusCodes.OK).json({ userJobs, count: userJobs.length })
 }
 const getSingleJob = async (req, res) => {
-	res.send('getSingleJob')
+	const {
+		user: { userId },
+		params: { id: jobId },
+	} = req
+
+	const job = await Job.findOne({
+		_id: jobId,
+		createdBy: userId,
+	})
+
+	if (!job) {
+		throw new BadRequestError(`Can't find job with id${jobId}`)
+	}
+
+	res.status(StatusCodes.OK).json({ job })
 }
+
 const createJob = async (req, res) => {
 	// from job-model createdBy
 	req.body.createdBy = req.user.userId
