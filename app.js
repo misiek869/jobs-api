@@ -24,6 +24,10 @@ app.use(express.json())
 app.use(helmet())
 app.use(xss())
 
+// app.get('/', (req, res) => {
+// 	res.send('<h1>Welocme</h1>')
+// })
+
 // routes
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/jobs', authenticationMiddleware, jobsRouter)
